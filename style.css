@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'inconsolata';
+    src: url(font/Inconsolata-SemiBold.ttf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.typewrite {
+    line-height: 1.2;
+}
+
+.main-bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.main-bg img {
+    width: 100%;
+}
+
+.content {
+    z-index: 1;
+    width: 40%;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media(min-width:1600px) {
+    .content {
+        width: 42.5%;
+    }
+}
+
+.logo-field {
+    display: flex;
+    gap: 15px;
+}
+
+.img-1 {
+    width: 170px;
+}
+
+.img-2 {
+    width: 130px;
+}
+
+@media(min-width:1600px) {
+    .logo-field {
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .img-1 {
+        width: 230px;
+    }
+
+    .img-2 {
+        width: 190px;
+    }
+}
+
+.img-1 img,
+.img-2 img {
+    width: 100%;
+}
+
+.text-field h1 {
+    text-align: center;
+    margin-top: 85px;
+    color: #fff;
+    font-family: 'inconsolata';
+    font-size: 45px;
+}
+
+@media(min-width:1600px) {
+    .text-field h1 {
+        font-size: 60px;
+        margin-top: 130px;
+    }
+}
+
+.button-field {
+    position: absolute;
+    margin-top: 22%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+@media(min-width:1600px) {
+    .button-field {
+        margin-top: 29%;
+    }
+}
+
+.back-btn {
+    width: 385px;
+    height: 55px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(min-width:1600px) {
+    .back-btn {
+        width: 485px;
+        height: 75px;
+    }
+}
+
+.back-btn p {
+    font-family: 'inconsolata';
+    font-size: 40px;
+    color: #fff;
+}
+
+.btn-prmy {
+    width: 400px;
+    height: 70px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #2DE2FB 0%, #51118C 100%);
+}
+
+@media(min-width:1600px) {
+    .btn-prmy {
+        width: 500px;
+        height: 90px;
+    }
+}
