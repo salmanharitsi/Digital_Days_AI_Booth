@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="page-ai-style.css">
+</head>
+
+<body>
+    <div class="main-bg">
+        <img src="asset/main-bg.png" alt="">
+    </div>
+    <div class="container-header">
+        <div class="logo-digital-day">
+            <img src="asset/Logo Digital Day Blue PNG 1.png" alt="">
+            <h1>Illegal Pipe Tapping Identification Using Drone</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <a href="../page/ai.html" class="back-button">
+                <div class="back-icon">
+                    <img src="asset/back-button.png" alt="">
+                </div>
+                <p>Back</p>
+            </a>
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="content-main">
+                            <div class="video-content">
+                                <video id="myVideo" src="asset/ilegaltapping/AI DRONE.mp4" style="width: 100%; height: 75vh;"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script>
+        const video = document.getElementById('myVideo');
+        const carousel = document.getElementById('carouselExampleCaptions');
+    
+        // Fungsi untuk memulai video saat masuk ke area halaman
+        function playVideo() {
+            if (isInViewport(video)) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    
+        // Fungsi untuk memeriksa apakah elemen berada di dalam viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 10 &&
+                rect.left >= 10 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Tambahkan event listener untuk mengontrol pemutaran video saat menggulir atau saat halaman dimuat ulang
+        document.addEventListener('scroll', playVideo);
+        window.addEventListener('load', playVideo);
+    
+        // Hentikan video saat meninggalkan halaman
+        window.addEventListener('beforeunload', () => {
+            video.pause();
+        });
+    
+        // Tambahkan event listener untuk mengontrol pemutaran video saat slidernya berubah
+        carousel.addEventListener('slid.bs.carousel', playVideo);
+    
+        // Jalankan video saat halaman dimuat pertama kali
+        window.addEventListener('load', () => {
+            playVideo();
+        });
+    </script>
+</body>
+
+</html>

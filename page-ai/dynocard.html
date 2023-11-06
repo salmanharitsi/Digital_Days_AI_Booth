@@ -29,8 +29,21 @@
                 <p>Back</p>
             </a>
             <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
+                        <div class="content-main">
+                            <div class="video-content">
+                                <video id="myVideo" src="asset/dynocard/DYNOCARD.mp4" style="width: 100%;"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
                         <div class="content-main">
                             <div class="img-content">
                                 <img src="asset/dynocard/Group 112.png" class="d-block w-100" alt="...">
@@ -57,11 +70,62 @@
                         </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
 
     <script src="../bootstrap/js/bootstrap.js"></script>
+    <script>
+        const video = document.getElementById('myVideo');
+        const carousel = document.getElementById('carouselExampleCaptions');
+    
+        // Fungsi untuk memulai video saat masuk ke area halaman
+        function playVideo() {
+            if (isInViewport(video)) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    
+        // Fungsi untuk memeriksa apakah elemen berada di dalam viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 10 &&
+                rect.left >= 10 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Tambahkan event listener untuk mengontrol pemutaran video saat menggulir atau saat halaman dimuat ulang
+        document.addEventListener('scroll', playVideo);
+        window.addEventListener('load', playVideo);
+    
+        // Hentikan video saat meninggalkan halaman
+        window.addEventListener('beforeunload', () => {
+            video.pause();
+        });
+    
+        // Tambahkan event listener untuk mengontrol pemutaran video saat slidernya berubah
+        carousel.addEventListener('slid.bs.carousel', playVideo);
+    
+        // Jalankan video saat halaman dimuat pertama kali
+        window.addEventListener('load', () => {
+            playVideo();
+        });
+    </script>
 </body>
 
 </html>
